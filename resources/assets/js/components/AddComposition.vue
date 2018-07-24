@@ -27,7 +27,7 @@ export default {
     },
     methods: {
         createComposition () {
-            let uri = 'localhost:8000/compositions'
+            let uri = 'http://localhost:8000/compositions'
             Axios.post(uri, this.composition).then((response) => {
                 this.$router.push({name: 'ListComposition'})
             }).catch((e) => {

@@ -13982,7 +13982,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(50);
+module.exports = __webpack_require__(54);
 
 
 /***/ }),
@@ -14002,10 +14002,10 @@ Vue.use(VueRouter, VueAxios, axios);
 var AppLayout = __webpack_require__(42);
 
 var ListComposition = Vue.component('list-composition', __webpack_require__(45));
-var AddComposition = Vue.component('add-composition', __webpack_require__(46));
-var EditComposition = Vue.component('edit-composition', __webpack_require__(47));
-var DeleteComposition = Vue.component('delete-composition', __webpack_require__(48));
-var ViewComposition = Vue.component('view-composition', __webpack_require__(49));
+var AddComposition = Vue.component('add-composition', __webpack_require__(48));
+var EditComposition = Vue.component('edit-composition', __webpack_require__(51));
+var DeleteComposition = Vue.component('delete-composition', __webpack_require__(52));
+var ViewComposition = Vue.component('view-composition', __webpack_require__(53));
 
 var routes = [{
     name: 'ListComposition',
@@ -14013,19 +14013,19 @@ var routes = [{
     component: ListComposition
 }, {
     name: 'AddComposition',
-    path: '/add-composition',
+    path: '/nova-composicao',
     component: AddComposition
 }, {
     name: 'EditComposition',
-    path: '/edit-composition',
+    path: '/editar/:id',
     component: EditComposition
 }, {
     name: 'DeleteComposition',
-    path: '/delete-composition',
+    path: '/deletar/:id',
     component: DeleteComposition
 }, {
     name: 'ViewComposition',
-    path: '/view/:id',
+    path: '/visualizar/:id',
     component: ViewComposition
 }];
 
@@ -50038,9 +50038,9 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(59)
+var __vue_script__ = __webpack_require__(46)
 /* template */
-var __vue_template__ = __webpack_require__(60)
+var __vue_template__ = __webpack_require__(47)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -50080,157 +50080,6 @@ module.exports = Component.exports
 
 /***/ }),
 /* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(61)
-/* template */
-var __vue_template__ = __webpack_require__(62)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\AddComposition.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-65187100", Component.options)
-  } else {
-    hotAPI.reload("data-v-65187100", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = null
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\EditComposition.vue"
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = null
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\DeleteComposition.vue"
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = null
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\ViewComposition.vue"
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50296,7 +50145,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 60 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -50406,7 +50255,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Conteúdo")]),
         _vm._v(" "),
-        _c("th", { staticClass: "col-md-2" }, [_vm._v("Opções")])
+        _c("th", [_vm._v("Opções")])
       ])
     ])
   }
@@ -50421,7 +50270,54 @@ if (false) {
 }
 
 /***/ }),
-/* 61 */
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(49)
+/* template */
+var __vue_template__ = __webpack_require__(50)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\AddComposition.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-65187100", Component.options)
+  } else {
+    hotAPI.reload("data-v-65187100", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50458,7 +50354,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         createComposition: function createComposition() {
             var _this = this;
 
-            var uri = 'localhost:8000/compositions';
+            var uri = 'http://localhost:8000/compositions';
             Axios.post(uri, this.composition).then(function (response) {
                 _this.$router.push({ name: 'ListComposition' });
             }).catch(function (e) {
@@ -50469,7 +50365,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 62 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -50565,6 +50461,493 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-65187100", module.exports)
+  }
+}
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = __webpack_require__(62)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\EditComposition.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4c7361ce", Component.options)
+  } else {
+    hotAPI.reload("data-v-4c7361ce", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(63)
+/* template */
+var __vue_template__ = __webpack_require__(64)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\DeleteComposition.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-44171518", Component.options)
+  } else {
+    hotAPI.reload("data-v-44171518", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(60)
+/* template */
+var __vue_template__ = __webpack_require__(59)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\ViewComposition.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8a034dc4", Component.options)
+  } else {
+    hotAPI.reload("data-v-8a034dc4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "pd-10" },
+    [
+      _c("h3", [_vm._v(_vm._s(_vm.composition.title))]),
+      _vm._v(" "),
+      _c("strong", [_vm._v("Conteúdo")]),
+      _c("br"),
+      _vm._v(" "),
+      _c("div", [
+        _vm._v("\n        " + _vm._s(_vm.composition.body) + "\n    ")
+      ]),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "router-link",
+        { staticClass: "btn btn-primary", attrs: { to: "/" } },
+        [_vm._v(" Voltar para listagem ")]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-8a034dc4", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            composition: {
+                title: '', body: ''
+            }
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        var uri = 'http://localhost:8000/compositions/' + this.$route.params.id;
+        Axios.get(uri).then(function (response) {
+            _this.composition = response.data;
+        }).catch(function (e) {
+            console.log(e, 'deu ruim ao obter dados');
+        });
+    }
+});
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            composition: {
+                title: '', body: ''
+            }
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        var uri = 'http://localhost:8000/compositions/' + this.$route.params.id + '/edit';
+        Axios.get(uri).then(function (response) {
+            _this.composition = response.data;
+        }).catch(function (e) {
+            console.log(e, 'deu ruim ao obter dados');
+        });
+    },
+
+    methods: {
+        updateComposition: function updateComposition() {
+            var _this2 = this;
+
+            var uri = 'http://localhost:8000/compositions/' + this.$route.params.id;
+            Axios.put(uri, this.composition).then(function (response) {
+                _this2.$router.push({ name: 'ListComposition' });
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h3", [_vm._v("Atualize sua composição")]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.updateComposition($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "edit-title" } }, [_vm._v("Titulo")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.composition.title,
+                expression: "composition.title"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", id: "edit-title", required: "" },
+            domProps: { value: _vm.composition.title },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.composition, "title", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "edit-body" } }, [_vm._v("Conteúdo")]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.composition.body,
+                expression: "composition.body"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { rows: "10", id: "edit-body", required: "" },
+            domProps: { value: _vm.composition.body },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.composition, "body", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-xs btn-primary", attrs: { type: "submit" } },
+          [_vm._v("Atualizar")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          { staticClass: "btn btn-xs btn-warning", attrs: { to: "/" } },
+          [_vm._v("Voltar")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4c7361ce", module.exports)
+  }
+}
+
+/***/ }),
+/* 63 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            composition: { title: '', body: '' }
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        var uri = 'http://localhost:8000/compositions/' + this.$route.params.id + '/edit';
+        Axios.get(uri).then(function (response) {
+            _this.composition = response.data;
+        });
+    },
+
+    methods: {
+        deleteComposition: function deleteComposition() {
+            var _this2 = this;
+
+            var uri = 'http://localhost:8000/compositions/' + this.$route.params.id;
+            Axios.delete(uri).then(function (response) {
+                _this2.$router.push({ name: 'ListComposition' });
+            }).catch(function (e) {
+                console.log('ERRO: ', e);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h3", [
+      _vm._v("Deletar composição "),
+      _c("strong", [_vm._v(_vm._s(_vm.composition.title))])
+    ]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.deleteComposition($event)
+          }
+        }
+      },
+      [
+        _c("p", [_vm._v("A deleção não poderá ser desfeita.")]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-xs btn-danger", attrs: { type: "submit" } },
+          [_vm._v("Deletar")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          { staticClass: "btn btn-xs btn-primary", attrs: { to: "/" } },
+          [_vm._v("Voltar")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-44171518", module.exports)
   }
 }
 

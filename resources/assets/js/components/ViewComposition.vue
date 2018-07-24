@@ -1,0 +1,31 @@
+<template id="post">
+    <div class="pd-10">
+        <h3>{{ composition.title }}</h3>
+        <strong>Conteúdo</strong><br>
+        <div>
+            {{ composition.body }}
+        </div><br>
+        <router-link :to="'/'" class="btn btn-primary"> Voltar para listagem </router-link>
+        
+    </div>
+</template>
+
+<script>
+export default {
+    data () {
+        return {
+            composition: {
+                title: '', body: ''
+            }
+        }
+    },
+    created (){       
+        let uri = 'http://localhost:8000/compositions/' + this.$route.params.id
+        Axios.get(uri).then((response) => {
+            this.composition =  response.data;
+        }).catch((e) => {
+            console.log(e, 'deu ruim ao obter dados');
+        });        
+    }
+}
+</script>

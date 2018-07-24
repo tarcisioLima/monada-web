@@ -11,12 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'CompositionController@home');
-Route::resource('/compositions', 'CompositionController');
+Route::get('/compositions', 'CompositionController@index');
+Route::get('/compositions/{id}', 'CompositionController@show');
+Route::get('/compositions/{id}/edit', 'CompositionController@edit');
+Route::put('/compositions/{id}', 'CompositionController@update');
+Route::delete('/compositions/{id}', 'CompositionController@destroy');
+Route::post('/compositions', 'CompositionController@store');

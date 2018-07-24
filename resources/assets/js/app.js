@@ -24,20 +24,20 @@ const routes =
     },
     {
         name: 'AddComposition',
-        path: '/add-composition',
+        path: '/nova-composicao',
         component: AddComposition
     },
     {
         name: 'EditComposition',
-        path: '/edit-composition',
+        path: '/editar/:id',
         component: EditComposition
     },{
         name: 'DeleteComposition',
-        path: '/delete-composition',
+        path: '/deletar/:id',
         component: DeleteComposition
     },{
         name: 'ViewComposition',
-        path: '/view/:id',
+        path: '/visualizar/:id',
         component: ViewComposition
     }
 ];
@@ -49,7 +49,7 @@ const router = new VueRouter({
 
 new Vue(
     Vue.util.extend(
-        { router},
+        { router },
         AppLayout
     )
 ).$mount('#app');

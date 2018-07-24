@@ -55,7 +55,7 @@ class CompositionController extends Controller
      */
     public function show($id)
     {
-        //
+        return Composition::find($id);
     }
 
     /**
@@ -66,7 +66,7 @@ class CompositionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return Composition::find($id);
     }
 
     /**
@@ -78,7 +78,18 @@ class CompositionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        $composition = Composition::find($id);
+        if($composition->count()) {
+            $composition->update($request->all());
+            return response()->json(['status' => 'sucesso', 'msg' => 'Composição atualizada com sucesso.']);
+        } else {
+            return response()->json(['status' => 'error', 'msg' => 'Erro ao atualizar composição.']);
+        }
     }
 
     /**
@@ -89,6 +100,12 @@ class CompositionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $composition = Composition::find($id);
+        if($composition->count()) {
+            $composition->delete($id);
+            return response()->json(['status' => 'sucesso', 'msg' => 'Composição deletada com sucesso.']);
+        } else {
+            return response()->json(['status' => 'error', 'msg' => 'Erro ao deletar composição.']);
+        }
     }
 }

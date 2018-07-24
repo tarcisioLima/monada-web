@@ -12,7 +12,7 @@
                     <th>#</th>
                     <th>Nome da composição</th>
                     <th>Conteúdo</th>
-                    <th class="col-md-2">Opções</th>
+                    <th>Opções</th>
                 </tr>
             </thead>
             <tbody>

@@ -8,12 +8,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Monada Web') }}</title>
     <!-- Styles -->
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
 </head>
 <body>
    <div class="pd-5 container "><h1>Aplicação spa base</h1></div>
-   <div id="app">
-   </div>
+   <div id="app"></div>
 
    <!-- Scripts -->
    <script>
@@ -21,6 +20,6 @@
          'csrfToken' => csrf_token()
       ]); ?>
    </script>  
-   <script src="{{ asset('js/app.js') }}"></script>
+   <script src="/js/app.js"></script>
 </body>
 </html>

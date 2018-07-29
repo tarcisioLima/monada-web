@@ -50,6 +50,7 @@ const router = new VueRouter({
 new Vue(
     Vue.util.extend(
         { router },
-        AppLayout
+        AppLayout,
+        
     )
 ).$mount('#app');

@@ -12,7 +12,7 @@
                     <th>#</th>
                     <th>Nome da composição</th>
                     <th>Conteúdo</th>
-                    <th>Opções</th>
+                    <th class="col-md-3">Opções</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,14 +32,16 @@
 </template>
 
 <script>
+import mixin from '../mixins';
 export default {
+    mixins: [mixin],
     data () {
         return {
             compositions: ''
         }
     },
     created () {
-        let uri = 'http://localhost:8000/compositions';
+        let uri = this.basepath + '/compositions';
         Axios.get(uri).then((response) => {
             this.compositions = response.data;
         }).catch(() => {

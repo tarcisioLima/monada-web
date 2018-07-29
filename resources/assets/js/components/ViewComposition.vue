@@ -11,7 +11,9 @@
 </template>
 
 <script>
+import mixin from '../mixins';
 export default {
+    mixins: [mixin],
     data () {
         return {
             composition: {
@@ -20,7 +22,7 @@ export default {
         }
     },
     created (){       
-        let uri = 'http://localhost:8000/compositions/' + this.$route.params.id
+        let uri = this.basepath + '/compositions/' + this.$route.params.id
         Axios.get(uri).then((response) => {
             this.composition =  response.data;
         }).catch((e) => {

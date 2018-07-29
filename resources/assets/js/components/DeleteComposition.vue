@@ -10,21 +10,23 @@
 </template>
 
 <script>
+import mixin from '../mixins';
 export default {
+    mixins: [mixin],
     data () {
         return {
             composition: { title: '', body: '' }
         }
     },
     created () {
-        let uri = 'http://localhost:8000/compositions/' + this.$route.params.id + '/edit'
+        let uri = this.basepath + '/compositions/' + this.$route.params.id + '/edit'
         Axios.get(uri).then((response) => {
             this.composition =  response.data;
         });
     },
     methods: {
         deleteComposition () {
-            let uri = 'http://localhost:8000/compositions/' + this.$route.params.id;
+            let uri = this.basepath + '/compositions/' + this.$route.params.id;
             Axios.delete(uri).then((response) => {
                 this.$router.push({name: 'ListComposition'})
             }).catch((e) => {

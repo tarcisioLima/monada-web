@@ -17,7 +17,9 @@
 </template>
 
 <script>
+import mixin from '../mixins';
 export default {
+    mixins: [mixin],
     data () {
         return {
             composition: {
@@ -26,7 +28,7 @@ export default {
         }
     },
     created (){     
-        let uri = 'http://localhost:8000/compositions/' + this.$route.params.id + '/edit'
+        let uri = this.basepath + '/compositions/' + this.$route.params.id + '/edit'
         Axios.get(uri).then((response) => {
             this.composition =  response.data;
         }).catch((e) => {
@@ -35,7 +37,7 @@ export default {
     },
     methods: {
         updateComposition () {
-            let uri = 'http://localhost:8000/compositions/' + this.$route.params.id;
+            let uri = this.basepath + '/compositions/' + this.$route.params.id;
             Axios.put(uri, this.composition).then((response) => {
                 this.$router.push({name: 'ListComposition'})
             })

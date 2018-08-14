@@ -5,7 +5,7 @@
         <div>
             {{ composition.body }}
         </div><br>
-        <router-link :to="'/'" class="btn btn-primary"> Voltar para listagem </router-link>
+        <router-link :to="'/'" class="btn btn-primary"> Voltar para listagem</router-link>
         
     </div>
 </template>
@@ -21,7 +21,7 @@ export default {
             }
         }
     },
-    created (){       
+    created (){       //O MALUCO É BRABO!!!
         let uri = this.basepath + '/compositions/' + this.$route.params.id
         Axios.get(uri).then((response) => {
             this.composition =  response.data;

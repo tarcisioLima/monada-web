@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCompositionsTable extends Migration
+class UpdateTokenInDeviceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateCompositionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('compositions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->text('body');
-            $table->timestamps();
+        Schema::table('device', function (Blueprint $table){
+            $table->string('fcm')->nullable()->change();
+            $table->string('token', 40)->nullable(false)->change();
         });
     }
 
@@ -28,6 +26,8 @@ class CreateCompositionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compositions');
+        Schema::table('device', function (Blueprint $table) {
+            //
+        });
     }
 }

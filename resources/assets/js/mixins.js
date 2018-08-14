@@ -8,7 +8,7 @@ module.exports = {
         getBasePath () {
             let url = window.location.href;
             let arr = url.split("/");
-            return arr[0] + "//" + arr[2]
+            return arr[0] + "//" + arr[2] + '/api'
         }
     }
 }

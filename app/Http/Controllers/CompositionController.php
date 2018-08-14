@@ -9,7 +9,7 @@ class CompositionController extends Controller
 {
     public function home()
     {
-        return view('vueApp');
+        return view('site.vueApp');
     }
     /**
      * Display a listing of the resource.

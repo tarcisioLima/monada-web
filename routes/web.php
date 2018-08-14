@@ -11,16 +11,12 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-
 Auth::routes();
 
-Route::get('/', 'CompositionController@home');
-Route::get('/compositions', 'CompositionController@index');
-Route::get('/compositions/{id}', 'CompositionController@show');
-Route::get('/compositions/{id}/edit', 'CompositionController@edit');
-Route::put('/compositions/{id}', 'CompositionController@update');
-Route::delete('/compositions/{id}', 'CompositionController@destroy');
-Route::post('/compositions', 'CompositionController@store');
+//O PULO DO GATO PRA FAZER O ROTEAMENTO DA SPA FUNFAR
+Route::get('/{any}', 'SPAController@index')->where('any', '.*');
+
+
+
+//ROTA PARA RECUPERAR EMAIL, CÊ QUE MANDA BRUXÃO!!! Lá na API estou enviando a rota /reset-password/{token}
+//Route::get('/reset-password/{token}', 'SeQuemanda@bruxao');

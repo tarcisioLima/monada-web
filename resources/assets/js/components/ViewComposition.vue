@@ -21,10 +21,10 @@ export default {
             }
         }
     },
-    created (){       //O MALUCO É BRABO!!!
+    created () {       //O MALUCO É BRABO!!!
         let uri = this.basepath + '/compositions/' + this.$route.params.id
         Axios.get(uri).then((response) => {
-            this.composition =  response.data;
+            this.composition =  response.data.data;
         }).catch((e) => {
             console.log(e, 'deu ruim ao obter dados');
         });        

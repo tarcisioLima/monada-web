@@ -50136,7 +50136,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         var uri = this.basepath + '/compositions';
         Axios.get(uri).then(function (response) {
-            _this.compositions = response.data;
+            _this.compositions = response.data.data;
         }).catch(function () {
             console.log('Não conseguiu obter dados do servidor');
         });
@@ -50917,7 +50917,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //O MALUCO É BRABO!!!
         var uri = this.basepath + '/compositions/' + this.$route.params.id;
         Axios.get(uri).then(function (response) {
-            _this.composition = response.data;
+            _this.composition = response.data.data;
         }).catch(function (e) {
             console.log(e, 'deu ruim ao obter dados');
         });

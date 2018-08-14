@@ -43,7 +43,7 @@ export default {
     created () {
         let uri = this.basepath + '/compositions';
         Axios.get(uri).then((response) => {
-            this.compositions = response.data;
+            this.compositions = response.data.data;
         }).catch(() => {
             console.log('Não conseguiu obter dados do servidor');
         });

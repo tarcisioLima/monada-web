@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Composition;
+use App\Http\Requests;
+use App\Http\Resources\Composition as CompositionResource;
 
 class CompositionController extends Controller
 {
-    public function home()
-    {
-        return view('site.vueApp');
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +17,8 @@ class CompositionController extends Controller
      */
     public function index()
     {
-        return Composition::orderBy('id', 'DESC')->get();
+        $compositions = Composition::orderBy('id', 'DESC')->paginate(15);
+        return CompositionResource::collection($compositions);
     }
 
     /**
@@ -55,7 +55,9 @@ class CompositionController extends Controller
      */
     public function show($id)
     {
-        return Composition::find($id);
+        $composition = Composition::findOrFail($id);
+        return new CompositionResource($composition);
+        
     }
 
     /**

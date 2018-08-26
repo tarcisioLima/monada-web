@@ -10,6 +10,9 @@ Vue.use(VueRouter, VueAxios, axios);
 
 let AppLayout = require('./components/App.vue');
 
+//Homepage
+const Homepage = Vue.component('homepage', require('./components/pages/Homepage.vue'));
+
 const ListComposition = Vue.component('list-composition', require('./components/ListComposition.vue'));
 const AddComposition = Vue.component('add-composition', require('./components/AddComposition.vue'));
 const EditComposition = Vue.component('edit-composition', require('./components/EditComposition.vue'));
@@ -18,9 +21,9 @@ const ViewComposition = Vue.component('view-composition', require('./components/
 
 const routes = 
     [{
-        name: 'ListComposition',
+        name: 'Homepage',
         path: '/',
-        component: ListComposition
+        component: Homepage
     },
     {
         name: 'AddComposition',
@@ -51,6 +54,5 @@ new Vue(
     Vue.util.extend(
         { router },
         AppLayout,
-        
     )
 ).$mount('#app');

@@ -1,0 +1,116 @@
+.homepage {
+    .main-header {
+        background: url('../images/bg-header.png') repeat;
+        background-attachment: fixed;
+        min-height: 100vh;
+        position: relative;
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            background: rgba($color-1-rgb, 0.9);
+            top: 0; left: 0; right: 0; bottom: 0;
+        }
+        .container {
+            position: relative;
+            height: 100%;
+           
+            h1, p {
+                text-align: center;
+                color: $kindwhite;
+                text-transform: uppercase;
+                
+            }
+            p {
+                font-size: 16px;
+                font-weight: 600;
+                margin-top: 4%;
+                letter-spacing: 4px;
+            }
+            h1 {
+                font-weight: 700;
+                margin-bottom: 0;
+                font-size: 5em;
+                padding-top: 5%;
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 30%;
+                    margin: 8px auto;
+                    background: $color-2;
+                    height: 4px;
+                }
+            }
+            
+            .workflow-list {
+                margin-top: 5%;
+                @include flex-align(space-between);
+                margin: 4% auto 0 auto;
+                width: 60%;
+                li {
+                    display: inline-block;
+                    // width: 180px;
+                    // &:not(:last-child) {
+                    //     margin-right: 30px;
+                    // }
+                    .icon {
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+                        background: $white;
+                        margin: 0 auto;
+                        @include flex-align();
+                        .fa {
+                            font-size: 32px;
+                            color: $color-1;
+                        }
+                    }
+                    p {
+                        margin-top: 15px;
+                        text-align: center;
+                        font-family: $font-one;
+                        text-transform: initial;
+                        font-size: 14px;
+                        font-weight: 300;
+                        & > span {
+                            background: $color-2;
+                            border-radius: 5px;
+                            padding: 5px 15px;
+                        }
+                    }
+                    &:hover {
+                        .icon { @extend .wobble-horizontal; }
+                    }
+                }
+            }
+        }
+    }
+    
+    //Navigation
+    #navigation {
+        background: rgba($color-1-rgb, 0.8);
+        box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.32);
+        .navbar {
+            &-brand {
+                width: 55px;
+                img {
+                    max-width: 100%;
+                    display: block;
+                    border-radius: 50%;
+                }
+            }
+            &-nav {
+                .nav-item {
+                    .nav-link {
+                        color: $white;
+                        &:hover {
+                            transition: 0.3s;
+                            background: $color-2;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

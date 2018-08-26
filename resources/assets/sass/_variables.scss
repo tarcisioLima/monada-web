@@ -1,8 +1,32 @@
+// Fonts
+$font-one: 'Roboto', sans-serif;
+$font-two: 'Open Sans', sans-serif;
 
-// Body
-$body-bg: #f5f8fa;
+// Colors
+$color-1: #29221A;
+$color-1-rgb: rgb(41, 34, 26);
+//$color-1-rgb: rgb(142,91,62);
+$color-2: #473E28;
+$color-2-rgb: rgb(71, 62, 40);
+$color-3: #bea586;
+$color-3-rgb: rgb(190,165,134);
 
-// Typography
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$black: #4c4c4c;
+$white: #ffffff;
+$kindwhite: #fcfbe3;
+$gray: #e5e5e5;
+
+//Breakpoints (Bootstrap)
+$xs: 576px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+
+// $grey: #60646B;
+// $red: #f53d3d;
+// $brown1: #29221A;
+// $brown2:#473E28;
+// $brown3:#867446;
+// $light: #f4f4f4;
+// $white: #FFF;

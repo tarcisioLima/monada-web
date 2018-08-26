@@ -5,62 +5,53 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Author;
+use App\Models\Publication;
+use App\Models\LinkHelper;
 use Illuminate\Support\Facades\Storage;
-use DOMDocument;
 
 class AuthorController extends Controller
 {
     public function search(Request $request, $filter, $offset){
-        return response()->json(['msg' => 'Usuários', 'data' => Author::search($filter, $offset)]);
+        return response()->json(['msg' => 'Usuários', 'data' => Author::search($request->auth->id, $filter, $offset)]);
     }
     
     public function suggestion(Request $request, $offset){
         return response()->json(['msg' => 'Usuários', 'data' => Author::suggestion($offset)]);
     }
     
-    public function teste(Request $request){
-        //$tags = get_meta_tags('https://medium.com/red-academy-journal/como-internacionalizar-seu-app-em-ionic-2-bd452efb0b8c');
-        //$tags = $this->fetch("https://monada-web-tarcisiolima.c9users.io/");
-        return response()->json(['msg' => 'Meta tags', 'data' => $request->auth]);
+    public function folder(Request $request, $folderId = 0){
+        return response()->json(['msg' => 'Pastas', 'data' => Author::folder($request->auth->authorId, $folderId)]);
     }
     
-    public function fetch($url){
-        $html = $this->curl_get_contents($url);
-
-        /**
-         * parsing starts here:
-         */
-        $doc = new DOMDocument();
-        @$doc->loadHTML('<?xml encoding="utf-8" ?>'.$html);
-
-
-        $tags = $doc->getElementsByTagName('meta');
-        $metadata = array();
-
-        foreach ($tags as $tag) {
-            if ($tag->hasAttribute('property') && strpos($tag->getAttribute('property'), 'og:') === 0) {
-                $key = strtr(substr($tag->getAttribute('property'), 3), '-', '_');
-                $value = $tag->getAttribute('content');
-            }
-            if (!empty($key)) {
-                $metadata[$key] = $value;
-            }
-        }
-
-        return $metadata;
+    public function profileFolders(Request $request, $authorId){
+        return response()->json(['msg' => 'Pastas do autor', 'data' => Author::folder($authorId)]);
     }
-
-    protected function curl_get_contents($url) {
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_FAILONERROR, 1);
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($curl, CURLOPT_TIMEOUT, 30);
-        curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-        $response = curl_exec($curl);
-        curl_close($curl);
-        return $response;
+    
+    public function publication(Request $request, $id, $offset = 0, $last = 0){
+        $publication = Publication::byAuthor($this->me($request), $id, $offset, $last);
+        return response()->json(['msg' => "Publicações do autor", 'data' => $publication]);
     }
+    
+    public function publicationInFolder(Request $request, $id, $folderId, $offset = 0){
+        $publication = Publication::byAuthor($this->me($request), $id, $offset, null, $folderId);
+        return response()->json(['msg' => "Publicações do autor em uma pasta", 'data' => $publication]);
+    }
+    
+    public function teste(Request $request){
+        $url = 'https://medium.com/';
+        $tags = LinkHelper::getMetaTagOG($url);
+        $data = array(
+                    "url"   => $url,
+                    "title" => $tags['title'] ?? null,
+                    "description" => $tags['description'] ?? null,
+                    "image" => $tags['image'] ?? null
+                );
+        //$tags = $this->fetch("https://monada-web-tarcisiolima.c9users.io/");
+        return response()->json(['msg' => 'Meta tags', 'data' => $data]);
+    }
+    
+    private function me($request){
+        return $request->auth->id ? $request->auth->id : 0;
+    }
+    
 }

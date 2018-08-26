@@ -14,7 +14,7 @@ class MonadaAuth
             $auth = Device::join('user', 'device.userId', '=', 'user.id')
                         ->leftjoin('author', 'user.id', '=', 'author.userId')
                         ->where('token', $token)
-                        ->first(['name', 'email', 'token', 'user.id', 'device.id AS deviceId', 'author.id AS authorId', 'author.username', 'author.image']);
+                        ->first(['name', 'email', 'token', 'user.id', 'device.id AS deviceId', 'author.id AS authorId', 'user.username', 'user.image']);
             if($auth){
                 $request->merge(compact('auth'));
                 return $next($request);

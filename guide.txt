@@ -26,17 +26,26 @@
     INSERT INTO user(name,email) VALUES ('Wolfgang Smith','wolfgangsmith@presencatotal.com');
     INSERT INTO user(name,email) VALUES ('Tomás de Aquino','saotomas@presencatotal.com');
     
-    INSERT INTO author(userId,actived,username,image, bio, facebook, twitter, instagram, youtube, site) VALUES (10,true,'olavodecarvalho','https://scontent.fssz1-1.fna.fbcdn.net/v/t1.0-9/11204876_10153471341242192_6674115775012687316_n.jpg?_nc_cat=0&oh=2bf5bb487ca6bce58c5b0b2bffbe4184&oe=5BC4BC65', 'B. 1947, philosopher, author of 18 books, and journalist, I am also a lecturer with a wide audience in Brazil and a growing one in the USA, where I live.', 'https://www.facebook.com/olavo.decarvalho', 'https://twitter.com/OdeCarvalho', 'https://www.instagram.com/olavodecarvalho1', 'https://www.youtube.com/user/olavodeca', 'http://www.seminariodefilosofia.org');
+    INSERT INTO author(userId,actived,username,image, bio, facebook, twitter, instagram, youtube, site) VALUES (10,true,'olavodecarvalho','https://pbs.twimg.com/profile_images/626195152898424832/6wFj8Ksr_400x400.jpg', 'B. 1947, philosopher, author of 18 books, and journalist, I am also a lecturer with a wide audience in Brazil and a growing one in the USA, where I live.', 'https://www.facebook.com/olavo.decarvalho', 'https://twitter.com/OdeCarvalho', 'https://www.instagram.com/olavodecarvalho1', 'https://www.youtube.com/user/olavodeca', 'http://www.seminariodefilosofia.org');
     INSERT INTO author(userId,actived,username,image) VALUES (11,true,'socr4tes','http://img3.wikia.nocookie.net/__cb20120206064856/epicrapbattlesofhistory/images/e/ea/Socrates_Portrait_400.jpg');
     INSERT INTO author(userId,actived,username,image) VALUES (12,true,'plata0','http://www.imagick.com.br/wp-content/uploads/2014/01/Platao-1.jpg');
     INSERT INTO author(userId,actived,username,image) VALUES (13,true,'lavelle','https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Louislavelle.jpg/200px-Louislavelle.jpg');
-    INSERT INTO author(userId,actived,username,image) VALUES (14,true,'leibnez','http://www.joseferreira.com.br/blogs/filosofia/e-books/e-book-discurso-de-metafisica-gottfried-leibniz/nova-imagem.jpg');
+    INSERT INTO author(userId,actived,username,image) VALUES (14,true,'leibnez','http://static.joseferreira.com.br/blogs/filosofia/e-books/e-book-discurso-de-metafisica-gottfried-leibniz/nova-imagem.jpg');
     INSERT INTO author(userId,actived,username,image) VALUES (15,true,'mario_concreto','http://www.erealizacoes.com.br/upload/colaborador/74/mario-ferreira-dos-santos1.jpg');
     INSERT INTO author(userId,actived,username,image) VALUES (16,true,'vivaldi','http://images.tiketa.lt/Files/2016.12/id_39570.jpg');
     INSERT INTO author(userId,actived,username,image) VALUES (17,true,'wolfgangsmith','https://images.gr-assets.com/authors/1517998098p5/254790.jpg');
     INSERT INTO author(userId,actived,username,image) VALUES (18,true,'saotomas','https://resenhasdefilosofia.files.wordpress.com/2012/11/sao-tomas-de-aquino-34984.jpg');
     
-    
+- UPDATE USERS:
+    UPDATE user SET username="olavodecarvalho", image="https://pbs.twimg.com/profile_images/626195152898424832/6wFj8Ksr_400x400.jpg" WHERE id=10;
+    UPDATE user SET username="socr4tes", image="http://img3.wikia.nocookie.net/__cb20120206064856/epicrapbattlesofhistory/images/e/ea/Socrates_Portrait_400.jpg" WHERE id=11;
+    UPDATE user SET username="plata0", image="http://www.imagick.com.br/wp-content/uploads/2014/01/Platao-1.jpg" WHERE id=12;
+    UPDATE user SET username="lavelle", image="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Louislavelle.jpg/200px-Louislavelle.jpg" WHERE id=13;
+    UPDATE user SET username="leibnez", image="http://static.joseferreira.com.br/blogs/filosofia/e-books/e-book-discurso-de-metafisica-gottfried-leibniz/nova-imagem.jpg" WHERE id=14;
+    UPDATE user SET username="mario_concreto", image="http://www.erealizacoes.com.br/upload/colaborador/74/mario-ferreira-dos-santos1.jpg" WHERE id=15;
+    UPDATE user SET username="vivaldi", image="http://images.tiketa.lt/Files/2016.12/id_39570.jpg" WHERE id=16;
+    UPDATE user SET username="wolfgangsmith", image="https://images.gr-assets.com/authors/1517998098p5/254790.jpg" WHERE id=17;
+    UPDATE user SET username="saotomas", image="https://resenhasdefilosofia.files.wordpress.com/2012/11/sao-tomas-de-aquino-34984.jpg" WHERE id=18;
     
 - INSERT CATEGORIES:
     

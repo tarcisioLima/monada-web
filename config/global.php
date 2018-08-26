@@ -2,5 +2,7 @@
 
 return [
     'searchAuthorLimit' => 15,
-    'suggestionAuthorLimit' => 30
+    'searchPublicationsHome' => 10,
+    'suggestionAuthorLimit' => 30,
+    'followingLimit' => 50
 ];

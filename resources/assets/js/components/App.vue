@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div>
         <transition name="fade">
             <router-view></router-view>     
         </transition>
@@ -9,7 +9,7 @@
 <script>
     export default {
         mounted() {
-            console.log('Componente montado');  
+            //console.log('Componente montado');  
         }
     }
 </script>

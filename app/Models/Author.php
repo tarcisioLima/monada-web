@@ -10,16 +10,18 @@ class Author extends Model
     protected $table = 'author';
     public $timestamps = false;
     
-    public static function search($filter, $offset){
+    public static function search($me, $filter, $offset){
         return DB::table('author')
             ->join('user', 'author.userId', '=', 'user.id')
             ->where('name', 'like', $filter.'%')
             ->orWhere('username', 'like', $filter.'%')
-            ->orderBy('username')
             ->orderBy('name')
+            ->orderBy('username')
             ->offset($offset)
             ->limit(config('global.searchAuthorLimit'))
-            ->get(['name', 'username', 'image', 'user.id']);
+            ->get(['name', 'username', 'image', 'user.id AS userId','author.id AS authorId',
+                DB::raw("(SELECT IF(COUNT(*) = 0, false, true) FROM relation WHERE followingId = user.id AND followerId = $me) AS followed"),
+            ]);
     }
     
     public static function suggestion($offset){
@@ -44,6 +46,12 @@ class Author extends Model
             ->join('device', 'relation.followerId', '=', 'device.userId')
             ->where('followingId', $me)
             ->get(['device.fcm','relation.followerId', 'relation.muted']);
+    }
+    
+    public static function folder($authorId, $folderId = 0){
+        $query = DB::table('folder')->where('authorId', $authorId);
+        if($folderId) $query->where('id', $folderId);
+        return $query->get();
     }
     
 }

@@ -1,0 +1,42 @@
+@mixin flex-align($x: center, $y: center) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: $x;
+    align-items: $y;
+}
+
+@mixin media($size, $limit){
+    @if $limit == 'min'{
+        @media (min-width: $size){@content};
+    }
+    @else{
+        @media (max-width: $size){@content};
+    }
+}
+
+@mixin fontset($align: center, $family: $font-one, $size: 18px, $weight: 400, $transform: initial, $color: $black) {
+    text-align: $align;
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    text-transform: $transform;
+    color: $color;
+}
+
+@mixin absolute-center($position: '') {
+    @if $position == 'x'{
+        position: absolute;
+        left: 50%;       
+        transform: translateX(-50%);
+    }@else if $position == 'y' {
+        position: absolute;     
+        top: 50%;
+        transform: translateY(-50%);
+    }@else {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+

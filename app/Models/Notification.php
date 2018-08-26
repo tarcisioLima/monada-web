@@ -8,9 +8,9 @@ use App\Models\FCM;
 
 class Notification extends Model{
     
-    public static function addUnreadPublication($followers, $publicationId){
+    public static function addUnreadPublication($followers, $authorId){
         foreach(array_unique(array_column($followers->toArray(), 'followerId')) as $follower){
-            DB::table('unread_notification')->insert(['action' => 'PUBLICATION', 'actionId' => $publicationId, 'userId' => $follower]);
+            DB::table('unread_notification')->insert(['action' => 'PUBLICATION', 'actionId' => $authorId, 'userId' => $follower]);
         }
     }
     
@@ -25,20 +25,29 @@ class Notification extends Model{
         }
         
         $data = array(
-            "title"       => $me->name,
-            "message"     => "📰 " . $publication->description, //📷🔗📽️
-            "notId"       => $me->id,
-            "priority"    => 2,
-            "icon"        => "notification_small_icon",
-            "color"       => "#867446",
-            "summaryText" => "%n% publicações novas",
-            "style"       => "inbox",
-            "userId"      => $me->id,
-            "type"        => "publication"
+            "title"         => $me->name,
+            "message"       => "📰 " . $publication->description, //📷🔗📽️
+            "notId"         => $me->id,
+            "priority"      => 2,
+            "icon"          => "notification_small_icon",
+            "color"         => "#867446",
+            "summaryText"   => "%n% publicações novas",
+            "style"         => "inbox",
+            "authorId"      => $me->authorId,
+            "publicationId" => $publication->id,
+            "type"          => "publication"
         );
-        FCM::notification($muted, $data);
-        $data['data']['muted'] = 1;
         FCM::notification($unmuted, $data);
+        
+        unset($data['title'], $data['message']);
+        FCM::notification($muted, $data);
+    }
+    
+    public static function clearUnreadNotification($me, $action, $actionId){
+        $query = DB::table('unread_notification')->where('userId', $me)->where('action', $action);
+        if($actionId)
+            $query->where('actionId', $actionId);
+        return $query->delete();
     }
     
 }

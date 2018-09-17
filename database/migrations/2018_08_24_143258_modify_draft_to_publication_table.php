@@ -13,7 +13,7 @@ class ModifyDraftToPublicationTable extends Migration
      */
     public function up()
     {
-        Schema::table('publication', function (Blueprint $table) {
+        Schema::table('publication', function (Blueprint $table){
             $table->boolean('draft')->nullable(FALSE)->change();
         });
     }

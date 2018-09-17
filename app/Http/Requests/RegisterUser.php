@@ -18,9 +18,11 @@ class RegisterUser extends FormRequest
         return [
             'name'     => 'required|max:40|regex:/(^[A-Za-z ]+$)+/',
             'email'    => 'required|email|max:191|unique:user',
+            'username' => 'required|max:20|unique:user',
             'password' => 'required|max:30|min:6',
             'term'     => 'required|boolean|in:1',
-            'fcm'      => 'max:191'
+            'fcm'      => 'max:191',
+            'invite'   => 'exists:invite,id|nullable',
         ];
     }
     
@@ -34,7 +36,11 @@ class RegisterUser extends FormRequest
             'email.required' => 'O email é necessário',
             'email.email'    => 'Digite um email válido',
             'email.max'      => 'O email não pode exceder 191 caracteres',
-            'email.unique'   => 'Este email já se encontra em uso',
+            'email.unique'   => 'Este email já está em uso',
+            
+            'username.required' => 'O nome de usuário é necessário',
+            'username.max'      => 'O nome de usuário não pode exceder 20 caracteres',
+            'username.unique'   => 'Este nome de usuário já está em uso',
             
             'password.required' => 'A senha é necessário',
             'password.min'      => 'A senha precisa no mínimo de 6 caracteres',
@@ -45,6 +51,8 @@ class RegisterUser extends FormRequest
             'term.in'       => 'É preciso que você concorde com os termos e condições de uso',
             
             'fcm.max'      => 'O token FCM disponibilizado pelo Device não pode exceder 191 caracteres',
+            
+            'invite.exists' => 'O convite de autor inserido é inválido',
         ];
     }
     

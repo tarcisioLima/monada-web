@@ -60,5 +60,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'MonadaAuth' => \App\Http\Middleware\MonadaAuth::class,
+        'MonadaHybridAuth' => \App\Http\Middleware\MonadaHybridAuth::class,
+        'MonadaAuthorAuth' => \App\Http\Middleware\MonadaAuthorAuth::class,
     ];
 }

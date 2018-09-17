@@ -12,6 +12,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 
 <!-- Metatags -->
-<meta property="og:image" content="https://monada-web-tarcisiolima.c9users.io/img/logo-brown3-background-brown1.png"/>  
+<meta property="fb:app_id"   content="236739250278907" />
+<meta property="og:url"   content="https://monada-web-tarcisiolima.c9users.io/" />
+<meta property="og:type"  content="article" />
+<meta property="og:image" content="https://monada-web-tarcisiolima.c9users.io/images/logo.png"/>
+<meta property="og:image" content="https://monada-web-tarcisiolima.c9users.io/images/bg-header.png"/>
+<meta property="og:image" content="https://monada-web-tarcisiolima.c9users.io/images/tarcisio.jpg"/> 
 <meta property="og:title" content="Monada"/>
 <meta property="og:description" content="Compartilhado via Monada. Baixe o nosso aplicativo na PlayStore, App Store ou acesse nosso site!!!"/>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="gmoraiz">
+<meta name="twitter:title" content="Monada">
+<meta name="twitter:description" content="Compartilhado via Monada. Baixe o nosso aplicativo na PlayStore, App Store ou acesse nosso site!!!">
+<meta name="twitter:image" content="https://monada-web-tarcisiolima.c9users.io/images/logo.png">

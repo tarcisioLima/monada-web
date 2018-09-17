@@ -1,18 +1,20 @@
 <?php
 
-namespace App\Models;
+namespace App\Utils;
 
 class FCM{
 
     public static function notification($token, $data){
         $data["content-available"] = "1";
+        $data["icon"] = "notification_small_icon";
+        $data["color"] = "#867446";
         foreach(array_chunk($token, 1000) as $tokenChunked){
             $fields = array(
                 'registration_ids' => $tokenChunked,
                 'data'             => $data,
                 "collapse_key"     => "new_messages"
             );
-            FCM::send($fields);
+            self::send($fields);
         }
     }
     
@@ -31,7 +33,8 @@ class FCM{
         curl_setopt($ch,CURLOPT_POSTFIELDS, json_encode($fields));
         $result = curl_exec($ch );
         curl_close( $ch );
-        //echo $result . '<br>';
+        // echo $result . '<br>';
+        // exit;
     }
     
 }

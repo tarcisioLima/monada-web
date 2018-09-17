@@ -31,7 +31,7 @@ export default {
         createComposition () {
             let uri = this.basepath + '/compositions';
             Axios.post(uri, this.composition).then((response) => {
-                this.$router.push({name: 'ListComposition'})
+                //this.$router.push({name: 'ListComposition'})
             }).catch((e) => {
                 console.log(e, 'deu ruim ao enviar post');
             });

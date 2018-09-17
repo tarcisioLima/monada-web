@@ -11,7 +11,7 @@
     }
     @else{
         @media (max-width: $size){@content};
-    }
+    } 
 }
 
 @mixin fontset($align: center, $family: $font-one, $size: 18px, $weight: 400, $transform: initial, $color: $black) {

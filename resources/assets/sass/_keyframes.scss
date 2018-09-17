@@ -19,8 +19,19 @@
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;    
 }
+@keyframes kf-logo {
+	from { transform: translateX(0deg); }
+	to { transform: skew(360deg);}
+}
 
-@keyframes kf-marker {
+.kf-logo {    
+    animation-name: kf-logo;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;    
+}
+
+@keyframes kf-marker {	
 	from {
 		top: -3px;
 	}
@@ -103,4 +114,18 @@
     animation-timing-function: ease-in-out;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid $color-1;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

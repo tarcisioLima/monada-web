@@ -10,6 +10,10 @@
 - AFTER CHANGES IN COFIG OR ENV FILES.
     php artisan config:clear
     php artisan cache:clear
+    php artisan config:cache
+    
+- AMAZON ECS TASKS:
+    https://docs.aws.amazon.com/pt_br/AmazonECS/latest/developerguide/scheduled_tasks.html
     
 - READ LATER 
     https://laravel-news.com/building-vue-spa-laravel-part-2/
@@ -65,5 +69,18 @@
     INSERT INTO folder(name,authorId) VALUES ("Politica Nacional", 1);
     INSERT INTO folder(name,authorId) VALUES ("Politica Internacional", 1);
     INSERT INTO folder(name,authorId) VALUES ("Metafísica", 1);
+
+- PROCEDURE
+
+    delimiter ;;
+    CREATE PROCEDURE invite_generator(qt int)
+    BEGIN
+    	DECLARE i INT DEFAULT 0;
+        WHILE i <= qt DO
+            INSERT INTO invite (id) VALUES (lpad(conv(floor(rand()*pow(36,10)), 10, 36), 10, 0));
+            SET i = i + 1;
+        END WHILE;
+    END;;
+    delimiter;
     
     

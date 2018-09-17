@@ -28,8 +28,8 @@ class SearchPublication extends FormRequest
         }
         
         $rules = [
-            'term'        => 'max:191|string',
-            'author'      => 'max:40|string',
+            'term'        => 'max:191|string|nullable',
+            'author'      => 'max:40|string|nullable',
             'since'       => 'date',
             'until'       => 'date',
             'category'    => 'array',

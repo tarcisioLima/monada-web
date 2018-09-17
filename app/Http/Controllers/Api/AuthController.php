@@ -7,23 +7,25 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Device;
+use App\Models\Author;
 use App\Models\ResetPassword;
 use Validator;
 use App\Http\Requests\RegisterUser;
 use App\Mail\ResetPasswordMail;
 use Illuminate\Support\Facades\Mail;
+use App\Utils\Obscure;
 
 class AuthController extends Controller
 {
     private $monadaToken, $ip, $platform;
-    
+
     public function __construct(Request $request)
     {
         $this->monadaToken = uniqid(base64_encode(str_random(60)));
         $this->platform = $request->server('HTTP_USER_AGENT');
         $this->ip = $request->ip();
     }
-    
+
     public function login(Request $request)
     {
         $user = User::where('email', $request->email)->first();
@@ -40,11 +42,11 @@ class AuthController extends Controller
                 $device->platform = $this->platform;
                 $device->save();
             }
-            return response()->json(['msg' => "Logado", 'data' => ['token' => $this->monadaToken, 'user' => ['email' => $user->email, 'name' => $user->name]]]);
+            return response()->json(['msg' => "Logado", 'data' => ['token' => $this->monadaToken, 'user' => User::me($user->id)]]);
         }
         return response()->json(['msg' => "Email e/ou Senha estão incorretos", 'data' => null]);
     }
-    
+
     public function register(RegisterUser $request)
     {
         $request->merge(['password' => Hash::make($request->password)]);
@@ -56,15 +58,26 @@ class AuthController extends Controller
         $device->token    = $this->monadaToken;
         $device->platform = $this->platform;
         $device->save();
-        return response()->json(['msg' => "Cadastrado com sucesso", 'data' => $device->token]);
+        $data = array(
+            'token'  => $device->token,
+            'userId' => Obscure::user($user->id)
+        );
+        if($request->invite){
+            if($authorId = Author::store($user->id, $request->invite)){
+                $data['authorId'] = Obscure::author($authorId);
+                return response()->json(['msg' => "Cadastrado com sucesso", 'data' => $data]);
+            }
+            return response()->json(['msg' => "Cadastrado, porém, houve uma falha ao gerarmos seu perfil de author.", 'data' => $data]);
+        }
+        return response()->json(['msg' => "Cadastrado com sucesso", 'data' => $data]);
     }
-    
+
     public function logout(Request $request)
     {
         Device::destroy($request->auth->deviceId);
         return response()->json(['msg' => 'Deslogado']);
     }
-    
+
     public function resetPassword(Request $request)
     {
         $user = User::where('email', $request->email)->first();
@@ -83,4 +96,5 @@ class AuthController extends Controller
         }
         return response()->json(['msg' => 'Não localizamos o email informado. Você o cadastrou?']);
     }
+
 }

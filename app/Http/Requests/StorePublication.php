@@ -5,7 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Support\Facades\DB;
+use App\Utils\Obscure;
+use Illuminate\Validation\Rule;
 
 class StorePublication extends FormRequest
 {
@@ -16,25 +17,34 @@ class StorePublication extends FormRequest
 
     public function rules()
     {
-        if($this->input('title') && (!$this->input('description') && !$this->input('link') && !$this->input('images'))){
+        if($this->input('title') && (!$this->input('description') && !$this->input('link') && empty($this->input('images')))){
             return ['onlyTitleNotPossible' => 'required'];
         }
-        if(!$this->input('title') && !$this->input('description') && !$this->input('link') && !$this->input('images')){
+        if(!$this->input('title') && !$this->input('description') && !$this->input('link') && empty($this->input('images'))){
             return ['publicationEmpty' => 'required'];
         }
         $rules = [
-            'title'       => 'max:100|string',
-            'description' => 'string',
-            'link'        => 'max:191|url',
+            'title'       => 'nullable|max:100|string',
+            'description' => 'nullable|string',
+            'link'        => 'max:191',
             'category'    => 'array|max:3',
             'category.*'  => 'exists:category,id|distinct',
-            'folderId'    => 'integer|exists:folder,id',
+            'folderId'    => 'nullable|integer|exists:folder,id',
             'draft'       => 'boolean',
-            'images'      => 'max:5',
-            'images.*'    => 'image|mimes:jpeg,jpg,png,gif|max:5000'
+            'images'      => 'array|max:5',
+            'images.*'    => ['distinct', Rule::exists('image', 'id')->whereNull('publicationId')]
         ];
 
         return $rules;
+    }
+    
+    protected function prepareForValidation(){
+        $input = $this->all();
+        $input['images'] = array_map(function($x){
+            return Obscure::unimage($x);
+        }, $this->input('images') ? $this->input('images') : []);
+        $input['folderId'] = Obscure::unfolder($this->input('folderId'));
+        $this->replace($input);
     }
     
     public function messages()
@@ -58,13 +68,13 @@ class StorePublication extends FormRequest
             
             'folderId.integer' => 'É preciso que o identificador da pasta selecionada seja um número inteiro',
             'folderId.exists'  => 'A pasta selecionada não foi encontrada em nosso sistema',
-            
-            'images.max'    => 'Você pode colocar no máximo 5 imagens',
-            'images.*.image' => 'Uma das "imagens" não correspondem a um arquivo de imagem',
-            'images.*.mimes' => 'Uma das imagens não atendem as extensões JPEG, JPG, PNG ou GIF',
-            'images.*.max'   => 'Uma das imagens excedeu 5MB',
         
             'draft.boolean' => 'É preciso que a opção de rascunho seja verdadeiro ou falso',
+            
+            'images.max'        => 'Você pode colocar no máximo 5 imagens',
+            'images.array'      => 'É preciso que o campo imagem seja uma lista de imagens',
+            'images.*.exists'   => 'Uma das imagens não está disponível em nosso sistema',
+            'images.*.distinct' => 'Uma das imagens está sendo repetida',
         ];
 
         return $rules;

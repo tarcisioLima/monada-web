@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700);@import url(https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,700);/*!
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700);@import url(https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,700);@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,700);/*!
  * Bootstrap v4.1.1 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -9490,7 +9490,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
-.wobble-horizontal, .homepage .main-header .container .workflow-list li:hover .icon {
+.wobble-horizontal {
   -webkit-animation-name: wobble-horizontal;
           animation-name: wobble-horizontal;
   -webkit-animation-duration: 1s;
@@ -9506,6 +9506,39 @@ a.text-dark:hover, a.text-dark:focus {
           animation-name: wobble-horizontal;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes kf-logo {
+  from {
+    -webkit-transform: translateX(0deg);
+            transform: translateX(0deg);
+  }
+  to {
+    -webkit-transform: skew(360deg);
+            transform: skew(360deg);
+  }
+}
+
+@keyframes kf-logo {
+  from {
+    -webkit-transform: translateX(0deg);
+            transform: translateX(0deg);
+  }
+  to {
+    -webkit-transform: skew(360deg);
+            transform: skew(360deg);
+  }
+}
+
+.kf-logo {
+  -webkit-animation-name: kf-logo;
+          animation-name: kf-logo;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
   -webkit-animation-timing-function: ease-in-out;
           animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: infinite;
@@ -9703,8 +9736,73 @@ a.text-dark:hover, a.text-dark:focus {
           animation-direction: alternate;
 }
 
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #29221A;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 body {
   font-family: "Open Sans", sans-serif;
+}
+
+.h2-section {
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: initial;
+  color: #473E28;
+  margin-bottom: 3%;
+}
+
+.h2-section:after {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 50px;
+  background: #bea586;
+  margin: 10px 0;
+}
+
+.btn-default, .homepage .main-section .form-box form [type=submit] {
+  display: inline-block;
+  background: #ffffff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: initial;
+  color: #473E28;
+  padding: 1em;
+  border-radius: 5px;
+  width: 20%;
 }
 
 a, a:hover {
@@ -9725,87 +9823,23 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto", sans-serif;
 }
 
-.homepage .main-header {
-  background: url("../images/bg-header.png") repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
+.homepage {
+  min-height: 80%;
+}
+
+.homepage .main-section .form-box {
+  margin-top: 5%;
   position: relative;
 }
 
-.homepage .main-header:before {
-  content: '';
-  display: block;
+.homepage .main-section .form-box .loader-wrap {
   position: absolute;
-  background: rgba(41, 34, 26, 0.9);
+  background: rgba(0, 0, 0, 0.3);
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-}
-
-.homepage .main-header .container {
-  position: relative;
-  height: 100%;
-}
-
-.homepage .main-header .container h1, .homepage .main-header .container p {
-  text-align: center;
-  color: #fcfbe3;
-  text-transform: uppercase;
-}
-
-.homepage .main-header .container p {
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 4%;
-  letter-spacing: 4px;
-}
-
-.homepage .main-header .container h1 {
-  font-weight: 700;
-  margin-bottom: 0;
-  font-size: 5em;
-  padding-top: 5%;
-}
-
-.homepage .main-header .container h1:after {
-  content: '';
-  display: block;
-  width: 30%;
-  margin: 8px auto;
-  background: #473E28;
-  height: 4px;
-}
-
-.homepage .main-header .container .workflow-list {
-  margin-top: 5%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 4% auto 0 auto;
-  width: 60%;
-}
-
-.homepage .main-header .container .workflow-list li {
-  display: inline-block;
-}
-
-.homepage .main-header .container .workflow-list li .icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: #ffffff;
-  margin: 0 auto;
+  z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9821,40 +9855,31 @@ h1, h2, h3, h4, h5, h6 {
           align-items: center;
 }
 
-.homepage .main-header .container .workflow-list li .icon .fa {
-  font-size: 32px;
-  color: #29221A;
-}
-
-.homepage .main-header .container .workflow-list li p {
-  margin-top: 15px;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  text-transform: initial;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.homepage .main-header .container .workflow-list li p > span {
-  background: #473E28;
-  border-radius: 5px;
-  padding: 5px 15px;
-}
-
 .homepage #navigation {
-  background: rgba(41, 34, 26, 0.8);
+  background: #473E28;
   -webkit-box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.32);
           box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.32);
 }
 
+.homepage #navigation #main-nav {
+  margin-top: 15px;
+}
+
+.homepage #navigation .logo-spot {
+  text-align: center;
+}
+
+.homepage #navigation .form-block .form-inline {
+  margin-top: 15px;
+}
+
 .homepage #navigation .navbar-brand {
-  width: 55px;
+  margin-right: 0;
 }
 
 .homepage #navigation .navbar-brand img {
-  max-width: 100%;
+  width: 55px;
   display: block;
-  border-radius: 50%;
 }
 
 .homepage #navigation .navbar-nav .nav-item .nav-link {
@@ -9864,6 +9889,55 @@ h1, h2, h3, h4, h5, h6 {
 .homepage #navigation .navbar-nav .nav-item .nav-link:hover {
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  background: #473E28;
+  background: #29221A;
   border-radius: 5px;
+}
+
+.homepage #navigation .navbar-toggler {
+  background: #6f603b;
+}
+
+.homepage #navigation .navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(71, 62, 40)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 768px) {
+  .homepage #navigation.navbar-expand-md > .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .homepage #navigation.navbar-expand-md > .container > .row > .col-md-4:first-child {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .homepage #navigation .logo-spot {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .homepage #navigation .navbar-nav .nav-item {
+    margin-bottom: 5px;
+  }
+  .homepage #navigation .navbar-nav .nav-item .nav-link {
+    background: #6f603b;
+    padding: 5px 10px;
+  }
+}
+
+.homepage #main-footer .final-block {
+  padding: 15px;
+  margin-top: 30px;
+  border-top: 1px solid #29221A;
+  color: #ffffff;
+  font-size: 12px;
 }
